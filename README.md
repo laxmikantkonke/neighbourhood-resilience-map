@@ -88,6 +88,20 @@ The browser only calls a small REST API. The server owns the database driver and
 
 The interface is designed for a resident rather than a graph database user: it starts with human language (“What do you need?”), makes verification visible, keeps filters lightweight, and explains why a referral is relevant. It includes loading, empty, and unavailable states, plus a persistent light/dark theme control for readability.
 
+## Screenshots
+
+**Homepage**
+
+![Neighbourlink homepage](docs/screenshots/hero.png)
+
+**Populated directory**
+
+![Browse all support services by category and area](docs/screenshots/directory.png)
+
+**Trusted referral route**
+
+![Trusted routes for housing support, reached through partner organisations](docs/screenshots/referral-route.png)
+
 ## Deployment and recording checklist
 
 1. Push this folder to a new GitHub repository. Do not commit `.env`.
