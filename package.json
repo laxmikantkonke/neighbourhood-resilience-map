@@ -1,0 +1,19 @@
+{
+  "name": "neighbourhood-resilience-map",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A graph-powered directory for finding trusted community support routes.",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node scripts/seed.js",
+    "verify": "node scripts/verify.js",
+    "check": "node --check src/server.js && node --check public/app.js && node --check scripts/seed.js && node --check scripts/verify.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "neo4j-driver": "^5.28.1"
+  }
+}

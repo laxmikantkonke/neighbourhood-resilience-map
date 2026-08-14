@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: neighbourhood-resilience-map
+    runtime: node
+    buildCommand: npm ci
+    startCommand: npm start
+    envVars:
+      - key: COGNODB_URI
+        sync: false
+      - key: COGNODB_USERNAME
+        value: cognodb
+      - key: COGNODB_PASSWORD
+        sync: false

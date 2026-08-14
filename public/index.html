@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Find trusted local support through the organisations already working together." />
+    <title>Neighbourhood Resilience Map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/theme.css" />
+  </head>
+  <body>
+    <main>
+      <nav class="nav wrap" aria-label="Main navigation">
+        <a class="brand" href="#top"><span class="brand-mark">↗</span> neighbour<span>link</span></a>
+        <div class="nav-actions">
+          <div class="nav-meta"><span class="pulse"></span> trusted local support</div>
+          <div class="menu-wrap">
+            <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="siteMenu">
+              <span class="menu-icon" aria-hidden="true">☰</span><span>Menu</span>
+            </button>
+            <div class="menu-panel" id="siteMenu" hidden>
+              <a href="#top">Home <span>↗</span></a>
+              <a href="#explore">Explore support <span>↓</span></a>
+              <a href="#routes">Trusted routes <span>→</span></a>
+              <a href="#how">How it works <span>↓</span></a>
+            </div>
+          </div>
+          <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+            <span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Dark</span>
+          </button>
+        </div>
+      </nav>
+
+      <section class="hero wrap" id="top">
+        <p class="eyebrow">A graph-powered local directory</p>
+        <h1>Support is closer<br /><em>than it looks.</em></h1>
+        <p class="hero-copy">Find a service, then see the trusted organisations connected around it. Neighbourlink turns local partnerships into clearer paths to help.</p>
+        <div class="hero-actions">
+          <a href="#explore" class="button button-primary">Explore support <span>↓</span></a>
+          <button class="button button-quiet" id="showHow" type="button">How it works</button>
+        </div>
+        <div class="hero-note"><span class="route-line"></span><span>Built from verified community connections</span></div>
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+      </section>
+
+      <section class="explore-section" id="explore">
+        <div class="wrap">
+          <div class="section-heading">
+            <div><p class="eyebrow">Explore the network</p><h2>Start with what you need.</h2></div>
+            <p class="status" id="databaseStatus" aria-live="polite"><span class="status-dot"></span> Checking local connections...</p>
+          </div>
+          <div class="need-grid" id="needGrid">
+            <button class="need-card" data-need="food"><span class="need-icon">◒</span><span><b>Food support</b><small>Meals, groceries & pantry access</small></span><i>→</i></button>
+            <button class="need-card" data-need="housing"><span class="need-icon">⌂</span><span><b>Housing advice</b><small>Tenancy, rent & emergency support</small></span><i>→</i></button>
+            <button class="need-card" data-need="work"><span class="need-icon">⌁</span><span><b>Work & skills</b><small>Training, CV help & job routes</small></span><i>→</i></button>
+            <button class="need-card" data-need="wellbeing"><span class="need-icon">☼</span><span><b>Wellbeing</b><small>Peer support & a listening ear</small></span><i>→</i></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="results wrap" aria-live="polite">
+        <div class="filters">
+          <div><p class="eyebrow">Browse all support</p><h2>What’s available nearby</h2></div>
+          <label>Category<select id="category"><option>All</option></select></label>
+          <label>Area<select id="area"><option>All</option><option>Riverside</option><option>Old Town</option><option>North End</option></select></label>
+        </div>
+        <div class="category-chips" id="categoryChips" aria-label="Quick support category filters"></div>
+        <div class="message loading" id="serviceMessage"><span class="spinner"></span> Mapping support services...</div>
+        <div class="service-grid" id="serviceGrid"></div>
+      </section>
+
+      <section class="route-section" id="routes" hidden>
+        <div class="wrap">
+          <p class="eyebrow">Trusted referral route</p>
+          <div class="route-heading"><h2 id="routeTitle">A connected path to support</h2><button class="text-button" id="closeRoute">Close ×</button></div>
+          <p class="route-copy">These recommendations are not a search result. They are services reached through active partnerships in the local network.</p>
+          <div class="message loading" id="routeMessage"><span class="spinner"></span> Following trusted connections...</div>
+          <div class="route-list" id="routeList"></div>
+        </div>
+      </section>
+
+      <section class="how wrap" id="how">
+        <div><p class="eyebrow">Why this is different</p><h2>Follow the relationships, not just the listings.</h2></div>
+        <div class="how-steps"><article><span>01</span><h3>Choose a need</h3><p>Start with the kind of support that would make a difference today.</p></article><article><span>02</span><h3>See trusted routes</h3><p>We trace connections between organisations already working together.</p></article><article><span>03</span><h3>Act with confidence</h3><p>Find details that are relevant to your area and a trusted next step.</p></article></div>
+      </section>
+    </main>
+    <section class="detail-backdrop" id="serviceDetail" role="dialog" aria-modal="true" aria-labelledby="detailTitle" hidden>
+      <div class="detail-panel">
+        <button class="detail-close" id="closeDetail" type="button" aria-label="Close service details">Close ×</button>
+        <p class="eyebrow">Service details</p>
+        <span class="tag" id="detailCategory"></span>
+        <h2 id="detailTitle"></h2>
+        <p class="detail-description" id="detailDescription"></p>
+        <dl class="detail-facts">
+          <div><dt>Available</dt><dd id="detailAvailability"></dd></div>
+          <div><dt>Areas</dt><dd id="detailAreas"></dd></div>
+          <div><dt>Provided by</dt><dd id="detailProvider"></dd></div>
+        </dl>
+        <div class="next-step"><span>Next step</span><p id="detailNextStep"></p></div>
+      </div>
+    </section>
+    <footer><div class="wrap footer-content"><span class="brand">neighbour<span>link</span></span><span>Made for the people who make a neighbourhood work.</span></div></footer>
+    <template id="serviceTemplate"><article class="service-card"><div class="card-top"><span class="tag"></span><span class="verified" hidden>✓ Verified partner</span></div><h3></h3><p class="description"></p><div class="service-meta"><span class="availability"></span><span class="areas"></span></div><div class="provider"></div></article></template>
+    <template id="routeTemplate"><article class="route-card"><div class="route-chain"><span class="provider"></span><b>partnered with</b><span class="partner"></span><b>to reach</b><span class="service"></span></div><p class="description"></p><div><span class="tag"></span><span class="route-supports"></span><span class="route-area"></span></div></article></template>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
