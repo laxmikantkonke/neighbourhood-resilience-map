@@ -4,6 +4,12 @@ Neighbourlink is a graph-powered directory for finding local help through the re
 
 > Built for the WEXA AI CognoDB take-home assignment.
 
+## Demo
+
+- **Live app:** https://neighbourhood-resilience-map.onrender.com/
+- **Walkthrough video:** [Watch here](https://drive.google.com/file/d/19QziYaYnh959Tt3g4dtqM_J_Lom9Z036/view)
+
+
 ## Why a graph database?
 
 A normal directory answers “which services match this category?” Neighbourlink also needs to answer “which **trusted** services can a resident reach through the partner network around an initial point of support?” That is relationship-first data.
